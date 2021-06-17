@@ -1,0 +1,7 @@
+Bill	Smith	10099
+Paul	Jones	10871
+Jill	Ryan	11120
+Robert	Johnson	11122
+Bob	Flin	10002
+Ronald	Reagan	10999
+Bill	Clinton	10821

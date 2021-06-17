@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">ScrollingApp</string>
+    <string name="article_title">Club de Regatas Vasco da Gama</string>
+    <string name="article_subtitle">Brief Introduction to a Brazilian Soccer Club</string>
+    <string name="article_text">The <b>Club de Regatas Vasco da Gama,</b> also known as <b>Vasco da Gama</b> or simply <b>Vasco</b>, is a professional sports club based in Rio de Janeiro, in the neighborhood of Vasco da Gama, that was founded on August 21, 1898 (although the professional football department started on November 5, 1915), by Portuguese immigrants, and still has a strong fanbase among the Portuguese community of Rio de Janeiro. It is one of the most popular clubs in Brazil, with <b>more than 23 million supporters</b>. Although they compete in a number of different sports, Vasco is mostly known for its soccer team. It plays in the Campeonato Carioca, the state of Rio de Janeiro\'s premier state league and in the Campeonato Brasileiro Série A, the top tier of Brazilian soccer league system.
+        \n\n
+        Its statute defines the club as a \"<i>sportive, recreative, educational, assistant and philanthropic non-profit organization of public utility</i>\".
+        \n\n
+        Their home stadium is São Januário, with a capacity of 21,880, the third biggest in Rio de Janeiro (after Maracanã and Engenhão), but some matches (especially the city derbies) are played at the Maracanã (capacity of about 80,000). They play in black shirts with a white diagonal sash that contains a cross pattée, black shorts and black socks.
+        \n\n
+        The club became worldly famous for forming two of the greatest Brazilian teams ever in 40\'s and 50\'s decades. And after for playing two World Club championships in 90\'s.
+        \n\n
+<b>Foundation</b>
+        \n\n
+        In the late 19th century rowing was the most important sport in Rio de Janeiro. At this time, four young men – Henrique Ferreira Monteiro, Luís Antônio Rodrigues, José Alexandre d\'Avelar Rodrigues and Manuel Teixeira de Souza Júnior – who did not want to travel to Niterói to row with the boats of Gragoatá Club decided to found a rowing club.
+        \n\n
+        On August 21, 1898 in a room of the <i>Sons of Talma Dramatic Society</i>, with 62 members (mostly Portuguese immigrants), the <b>Club de Regatas Vasco da Gama</b> (Vasco da Gama Rowing Club) was born.
+        \n\n
+        Inspired by the celebrations of the 4th centenary of the first sail from Europe to India, the founders chose to name to club in honor of Portuguese explorer Vasco da Gama.
+        \n\n
+        Football was included only with the fusion with Lusitania Clube, other mostly Portuguese immigrants club. Beginning in the smaller leagues, Vasco became champion of the league B in 1922 and ascended to league A. In its first championship in League A – in 1923, Vasco became champion with a team formed by whites, blacks and \"mulatto\" players of different social classes.
+        \n\n
+        <b>Overcoming social &#38; class inequality</b>
+        \n\n
+        Football in Brazil back then was a sport for the elites, and Vasco da Gama\'s racially diverse squad didn\'t appease them. In 1924 Vasco da Gama was pressured by the Metropolitan League to ban some players that were not considered adequate to play in the aristocratic league, notably because they were black or mulato and/or poor. After Vasco refused to comply with such a ban, the other big teams, Fluminense, Flamengo and Botafogo, among others, created the Metropolitan Athletic Association and prohibited Vasco from participating unless it complied with the racist demands.
+        \n\n
+        The former President of Vasco, José Augusto Prestes, responded with a letter that became known as the Historic Response (resposta histórica), which revolutionized the practice of sports in Brazil. After a few years, the racism barriers fell. Vasco da Gama had led the move toward a more inclusive football culture, forward-thinking not employed by leaders from Fluminense, Flamengo and Botafogo.
+        \n\n
+        Even though the club was not the first to field black players, it was the first one to win a league with them, which led to an outcry to ban \"blue-collar workers\" from playing in the league - a move that in practice meant barring blacks from playing.
+        \n\n
+        In 1925 Vasco was readmitted into the \"elite\" league, with its black and mulatto players. By 1933, when football became professional in Brazil, most of the big clubs had black players in them.
+        \n\n
+        <b>For more information, visit www.vasco.com.br.</b>
+    </string>
+    <string name="button_text">Add Comment</string>
+</resources>

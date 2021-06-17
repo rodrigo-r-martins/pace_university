@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Who is Rodrigo Martins?</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body id="body">
+	<header>
+		<h1 id="title">Who is Rodrigo Martins?</h1>
+		<div>
+			<button id="mode__button" onclick="changeBackgroundColor()">To Dark Mode</button>
+		</div>
+	</header>
+	<div class="container">
+		<main>
+			<section class="section__intro">
+				<h2>Brief Introduction</h2>
+				<div>
+					<img class="intro__photo"" src="media/family.png" alt="family">
+					<p>Hi, for those who don't know me, I'm Rodrigo Martins, I'm from Rio de Janeiro, Brazil but currently I live in Stamford, Connecticut. I'm married for 4 years and I have a cute 3 months daughter called Olivia.
+					</p>
+					<p>I moved to United States 2 years ago after my wife received an offer to join her company here in this country. Since I have always had interest in computers and I wasn't happy being a Lawyer, I saw that as an opportunity to pursue a Master Degree in Computer Science and start over my professional career. As I said, I was a Lawyer in Brazil, so this program is a huge change in my career and I hope I can succeed at being Software Developer.
+					</p>
+					<p>In the free time, I enjoy playing soccer, taking photographs, go skiing and travelling (a lot!). I'm going to share some of my experiences in photos and videos.
+					</p>
+					<p>Before I show you some cool pictures, take a look at how I would describe this brief introduction in JavaScript code using the variable "let rodrigoMartins = {object description}". Click on the following button and find out:
+					</p>
+				</div>
+				<button id="intro__button" onclick="showIntroCode()">console.log(rodrigoMartins)</button>
+				<div id="intro__code">
+					<code>
+						{ 
+							<b>name:</b> "Rodrigo Martins",
+							<b>isMarried:</b> true,
+							<b>wife:</b> "Carolina Martins",
+							<b>hasChildren:</b> true,
+							<b>children:</b> {
+								<b><i>son:</i></b> null,
+								<b><i>daughter:</i></b> "Olivia Martins",
+							},
+							<b>livingIn:</b> "Stamford, CT",
+							<b>hometown:</b> "Rio de Janeiro, Brazil",
+							<b>career:</b> [ 
+								"Lawyer", 
+								"Software Developer"
+							],
+							<b>hobbies:</b> [
+								"Soccer",
+								"Photography",
+								"Skiing",
+								"Traveling",
+								"Coding"
+							]
+						}
+					</code>
+				</div>
+			</section>
+			<section class="section__hobbies">
+				<h2>Hobbies</h2>
+				<div>
+					<ul>
+						<li>
+							<h3><button id="soccer_btn" onclick="showHobbiesMedia(this.id)" class="hobbies__button">Soccer ⚽</button></h3>
+						</li>
+						<li>
+							<h3><button id="photography_btn" onclick="showHobbiesMedia(this.id)" class="hobbies__button">Photography 📸</button></h3>
+						</li>
+						<li>
+							<h3><button id="skiing_btn" onclick="showHobbiesMedia(this.id)" class="hobbies__button">Skiing 🎿</button></h3>
+						</li>
+						<li>
+							<h3><button id="traveling_btn" onclick="showHobbiesMedia(this.id)" class="hobbies__button">Traveling ✈️</button></h3>
+						</li>
+					</ul>
+					<div class="hobbies__container">
+						<div id="soccer">
+							<div>
+								<div class="soccer__jersey">
+									<img class="home" src="media/vascodagama-jersey-home.png" alt="vascodagama-jersey-home">
+									<img class="away" src="media/vascodagama-jersey-away.png" alt="vascodagama-jersey-away">
+								</div>
+								<p class="jersey__p">Vasco da Gama: Brazilian Soccer Club Jersey Home/Away <b>👉 HOVER OVER ME 👈</b></p>
+							</div>
+							<div>
+								<img src="media/in-maracana.png" alt="in-maracana">
+								<p>Supporting Vasco da Gama in Maracana, Brazil</p>
+							</div>
+							<div>
+								<video width="200" height="200" autoplay="true" loop="true" muted="true">
+									<source src="media/playing_soccer.mp4" type="video/webm">
+								</video>
+								<p>Playing soccer with some friends</p>
+							</div>
+						</div>
+						<div id="photograph">
+							<div>
+								<img src="media/paris.png" alt="paris">
+								<p>The moon over Paris</p>
+							</div>
+							<div>
+								<img src="media/copenhagen.png" alt="copenhagen">
+								<p>Fog morning in Copenhagen harbour</p>
+							</div>
+							<div>
+								<img src="media/kruger.png" alt="kruger">
+								<p>Sky full of stars in South Africa</p>
+							</div>
+						</div>
+						<div id="skiing">
+							<div>
+								<img src="media/ski.png" alt="skiing-selfie">
+								<p>Skiing at Mountain Creek</p>
+							</div>
+							<div>
+								<img src="media/ski2.png" alt="skiing-with-wife">
+								<p>Skiing with my wife at Hunter Mountain</p>
+							</div>
+							<div>
+								<video width="200" height="200" autoplay="true" loop="true" muted="true">
+									<source src="media/skiing.mp4" type="video/webm">
+								</video>
+								<p>Facing a blue ski trail at Mohawk Mountain</p>
+							</div>
+						</div>
+						<div id="traveling">
+							<div>
+								<img src="media/greece.png" alt="greece">
+								<p>Honeymoon in Greece</p>
+							</div>
+							<div>
+								<img src="media/norway.png" alt="norway">
+								<p>Visiting scandinavian countries</p>
+							</div>
+							<div>
+								<img src="media/south-africa.png" alt="south-africa">
+								<p>Bungee jumping in South Africa</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+		<footer class="footer">
+			<p>©Rodrigo Martins - CS641: Web Development - Pace University - New York, NY - 2021</p>
+		</footer>
+	</div>
+	<script src="script.js"></script>
+</body>
+</html>

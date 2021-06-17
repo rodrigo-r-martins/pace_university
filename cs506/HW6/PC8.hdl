@@ -1,0 +1,11 @@
+CHIP PC8 {
+    IN in[8],load,inc,reset;
+    OUT out[8];
+
+    PARTS:
+    Inc8 (in=outReg, out=outInc);
+    Mux8 (a=outReg, b=outInc, sel=inc, out=incOUT);
+    Mux8 (a=incOUT, b=in, sel=load, out=loadOUT);
+    Mux8 (a=loadOUT, b=false, sel=reset, out=resetOUT);
+    Register8 (in=resetOUT, load=true, out=out, out=outReg);
+}

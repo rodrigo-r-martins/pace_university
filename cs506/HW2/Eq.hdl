@@ -1,0 +1,18 @@
+
+/**
+ * Eq gate: 
+ * out = 1 if (a == b)
+ *       0 otherwise
+ */
+
+// a And b Or Not(a) And Not(b)
+
+CHIP Eq {
+    IN a, b;
+    OUT out;
+
+    PARTS:
+    // Put your code here:
+    Xor (a=a, b=b, out=axorb);
+    Not (in=axorb, out=out);
+}

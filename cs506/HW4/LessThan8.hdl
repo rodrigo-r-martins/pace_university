@@ -1,0 +1,8 @@
+CHIP LessThan8 {
+    IN a[8], b[8];
+    OUT out;
+    
+    PARTS: 
+    //puts your code here
+    SubOrAdder8 (a=a, b=b, sub=true, out[7]=out);
+}

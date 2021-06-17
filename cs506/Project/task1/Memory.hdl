@@ -1,0 +1,64 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/05/Memory.hdl
+
+/**
+ * The complete address space of the Hack computer's memory,
+ * including RAM and memory-mapped I/O. 
+ * The chip facilitates read and write operations, as follows:
+ *     Read:  out(t) = Memory[address(t)](t)
+ *     Write: if load(t-1) then Memory[address(t-1)](t) = in(t-1)
+ * In words: the chip always outputs the value stored at the memory 
+ * location specified by address. If load==1, the in value is loaded 
+ * into the memory location specified by address. This value becomes 
+ * available through the out output from the next time step onward.
+ * Address space rules:
+ * Only the upper 16K+8K+1 words of the Memory chip are used.
+ *
+ * CHANGE FROM BOOK:
+ * - if address > 0x6000 (in hexidecimal) is accessed, your logic
+ *   must return a 0 value, regardless of whether load is 1 or 0
+ * - don't worry about loading a bad value if address > 0x6000;
+ *   ignore that complication; just make sure out=0 for these addresses
+ * 
+ * Access to any address in the range 0x4000-0x5FFF results in
+ * accessing the screen memory map. Access to address 0x6000 results
+ * in accessing the keyboard memory map. The behavior in these
+ * addresses is described in the Screen and Keyboard chip
+ * specifications given in the book.
+ */
+
+
+
+// It uses RAM16K, Screen and Keyboard
+// It should use same logic of RAM's (DMux to get loads and Mux to get output)
+
+// RAM16K -> in[16], load, address[14], out[16])
+// Screen -> in[16], load, address[13], out[16])
+// Keyboard -> out[16])
+
+// 0110 0000 0000 0000 = 0x6000 -> Must check if 13 first buses are 0 like the hexadecimal number 0x6000. It will be the selector for a Mux between keyboard output and (false=0). If selector=1, output=0, else output=keyboard.
+
+CHIP Memory {
+    IN in[16], load, address[15];
+    OUT out[16];
+
+    PARTS:
+
+    // Using DMux to get load bit of Ram and Screen   
+    DMux (in=load, sel=address[14], a=loadRam, b=loadScreen);
+
+    RAM16K (in=in, load=loadRam, address=address[0..13], out=outRam);			// 16K = 14 addresses
+    Screen (in=in, load=loadScreen, address=address[0..12], out=outScreen);		// 8K = 13 addresses
+
+    // Verify address[0..12] to check if address has crossed bound
+    Keyboard (out=outKb);
+    Or13Way (in=address[0..12], out=bound);			// Bound = 0110 0000 0000 0000 = 0x6000
+    And (a=address[13], b=address[14], out=ad1314);
+    And (a=bound, b=ad1314, out=boundSel);
+    Mux16 (a=outKb, b=false, sel=boundSel, out=kbOut);		// If sel=1, kbOut=0, else kbOut=keyboard
+
+    // Using Mux to get output of Memory
+    Mux4Way16 (a=outRam, b=outRam, c=outScreen, d=kbOut, sel=address[13..14], out=out);    
+}

@@ -1,0 +1,4 @@
+#Sun Mar 14 13:08:00 EDT 2021
+base.0=D\:\\RODRIGO\\Pace\\CS639\\assignments\\06\\AppWithSettings\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
+path.0=classes.dex
+renamed.0=classes.dex

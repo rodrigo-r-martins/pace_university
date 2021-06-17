@@ -1,0 +1,17 @@
+/*Please read HW3 instruction for requirements of High4*/
+CHIP High4{
+    IN in[4];
+    OUT out[2];
+
+    PARTS: //put your implementation here
+    Mux2 (a[0]=false, b[0]=true, sel=in[1], out=mux1);
+    Mux2 (a=mux1, b[0]=false, b[1]=true, sel=in[2], out=mux2);
+    Mux2 (a=mux2, b[0]=true, b[1]=true, sel=in[3], out=out);
+
+/*
+    Not (in=in[2], out=notin2);
+    And (a=in[1], b=notin2, out=in1andnotin2);
+    Or (a[0]=in1andnotin2, b=in[3], out=out[0]);
+    Or (a=in[2], b=in[3], out=out[1]);    
+*/
+}

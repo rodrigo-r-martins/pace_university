@@ -1,0 +1,89 @@
+-- (a) using rollback and commit
+
+select * from student;
+
+update student 
+set credits =credits + 10;
+
+select * from student;
+
+rollback;
+
+select * from student;
+
+commit;
+
+select * from student;
+/
+
+-- (b) using savepoints
+
+update student 
+set credits = credits + 10;
+
+select * from student; 
+
+savepoint added_10;
+
+update student set major = 'CSC';
+
+select * from student;
+
+-- roll back to last savepoint
+rollback to savepoint added_10;  
+
+select * from student;
+
+-- roll back to beginning of transaction
+rollback;  
+
+select * from student;
+
+commit;
+/
+
+
+-- (c) using SET TRANSACTION and naming transactions
+
+SET TRANSACTION READ ONLY NAME 'TRANSTEST';
+
+SELECT lastname, credits
+FROM student
+order by lastname;
+
+COMMIT;
+
+-- the following generates an error because it attempts to write in a read-only transaction
+
+SET TRANSACTION READ ONLY NAME 'TRANSTEST2';
+
+SELECT lastname, credits
+FROM student
+order by lastname;
+
+UPDATE student
+SET credits = credits +10;
+
+COMMIT;
+
+
+--  to allow writing we make it READ WRITE
+
+SET TRANSACTION READ WRITE NAME 'TRANSTEST3';
+
+SELECT lastname, credits
+FROM student
+order by lastname;
+
+UPDATE student
+SET credits = credits +10;
+
+SELECT stuid, credits
+FROM student;
+
+ROLLBACK;
+
+SELECT stuid, credits
+FROM student;
+
+/

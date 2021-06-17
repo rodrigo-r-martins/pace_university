@@ -1,0 +1,12 @@
+Examine the following ER diagram for CustomerOrder example, which also appears in Figure 4.9 (located in the textbook): 
+
+ 
+1. Write a relational schema for this E-R diagram. Underline primary keys and indicate foreign keys. Note: Foreign keys are in italic.
+
+2. Using Oracle, create the database to correspond to the relational schema.
+
+3. Insert several records in each table.
+
+4. Make up five questions and design five queries.
+
+5. Execute the five queries in the database and show the results.

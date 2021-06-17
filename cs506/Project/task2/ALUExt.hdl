@@ -1,0 +1,66 @@
+/*
+ 
+In lecture we noticed that there are 6 control bits as part of inputs of ALU, which could potentially support 2^6 (64) functionalities, more than what has been defined as below: 
+
+We will use unused code to represent new features: left-shift and right-shift:   
+zx nx zy ny f no out 
+1  1  1  1  0 1  x*2 
+1  1  1  1  1 0  x/2 
+ 
+In order to avoid conflicts with the built-in three-phase design of ALU while treating ALU as a building block, we can follow this simple branching logic: 
+
+if(zx==1 && nx==1 &&zy==1 && ny==1 && f==0 && no==1) {      
+	output = x*2 
+} else if (zx==1 && nx==1 &&zy==1 && ny==1 && f==1 && no==0) {      
+	output = x*2 
+} else {      
+	output = ALU(zx, nx, zy, ny, f, no); 
+} 
+
+*/
+
+// I need to check zx, nx, zy, ny to be all true to get left or right shift output
+
+CHIP ALUExt {
+    IN  
+        x[16], y[16],  // 16-bit inputs        
+        zx, nx, zy, ny, f, no;
+
+    OUT 
+        out[16], // 16-bit output
+        zr, // 1 if (out == 0), 0 otherwise
+        ng; // 1 if (out < 0),  0 otherwise
+
+    PARTS:
+    // Put you code here:
+
+    // Checking Shifts for X
+    LShift (in=x, out=xL);
+    RShift (in=x, out=xR);
+    Mux16 (a=xL, b=xR, sel=f, out=muxShift);
+    
+    // ALU treated as a block
+    ALU (x=x, y=y, zx=zx, nx=nx, zy=zy, ny=ny, f=f, no=no, out=outALU, zr=outZr, ng=outNg);
+
+    // Checking zx, nx, zy, ny, because all must be one to use LShift and RShift
+    And4Way (in[0]=ny, in[1]=zy, in[2]=nx, in[3]=zx, out=instrTrue);
+
+    // Mux between ALU output and mux output of Shifts with selector handled in And4Way
+    Mux16 (a=outALU, b=muxShift, sel=instrTrue, out=outALUShift);
+
+    // Checking output after handle shifts and selectors (zx, nx, zy, ny) to be all true
+    // no and f == 00 -> a=outALU
+    // no and f == 01 -> b=outALUShift - x*2
+    // no and f == 10 -> c=outALUShift - x/2
+    // no and f == 11 -> d=outALU
+    Mux4Way16 (a=outALU, b=outALUShift, c=outALUShift, d=outALU, sel[0]=no, sel[1]=f, out=out, out[0..7]=out0to7, out[8..15]=out8to15, out[15]=out0to15);
+
+    // Checkin ZR output 
+    Or8Way (in=out0to7, out=outa);
+    Or8Way (in=out8to15, out=outb);
+    Or (a=outa, b=outb, out=allZero);
+    Not (in=allZero, out=zr);
+
+    // Checkin NG output
+    Mux (a=false, b=true, sel=out0to15, out=ng);   
+}

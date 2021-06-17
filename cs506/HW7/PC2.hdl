@@ -1,0 +1,24 @@
+CHIP PC2 {
+   IN din[16], op[2];
+   OUT dout[16];
+
+   PARTS:
+   //implement two-way stateless counter with overflow and underflow control
+
+    Mux16 (a=false, b=din, sel=op[0], out=outmux1);
+    Mux16 (a=outmux1, b=outCheck, sel=op[1], out=outmux2);
+    Register (in=outmux2, load=true, out=outReg, out=dout);
+    SubOrAdder16 (a=outReg, b[0]=true, sub=op[0], out=sOrAout);
+	// Checking 0xFFFF or 0x0000 and mode
+    Not (in=op[0], out=notOp0);
+    And (a=op[1], b=notOp0, out=modeOut);
+    Not (in=modeOut, out=notModeOut);
+    Or16Way (in=outReg, out=orOut);
+    Not (in=orOut, out=notOrOut);
+    And16Way (in=outReg, out=andOut);
+    And (a=notModeOut, b=notOrOut, out=andCheck1);
+    And (a=andOut, b=modeOut, out=andCheck2);
+    Or (a=andCheck1, b=andCheck2, out=orCheck);			
+
+    Mux16 (a=sOrAout, b=outReg, sel=orCheck, out=outCheck);	// output checked
+}

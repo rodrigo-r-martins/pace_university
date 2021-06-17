@@ -1,0 +1,14 @@
+
+/**
+ * Constant one gate: given input a, output is always 1
+ */
+
+CHIP ConstantOne {
+    IN a;
+    OUT out;
+
+    PARTS:
+    // Put your code here:
+    Not (in=a, out=nota);
+    Or (a=nota, b=a, out=out);
+}

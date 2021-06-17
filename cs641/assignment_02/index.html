@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ultra Corporation</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <header>
+    <h1>Ultra Corporation</h1>
+    <h4>Do you want to make a responsive website?</h4>
+    <h5>Contact us: 987-654-3210</h5>
+  </header>
+  <main class="container">
+    <div class="col-one">
+      <h6>Content Strategy</h6>
+      <img src="./media/plans.jpg" alt="plan"/>
+      <p>Content strategy is a strategy that takes your business goals, and then uses content as a primary means to achieve those goals. We will help you to achieve your business goals by increasing the website visibility whether the user navigates through a desktop or mobile.</p>
+    </div>
+    <div class="col-two">
+      <h6>Layout Designing</h6>
+      <img src="./media/webdesign.jpg" alt="webdesign"/>
+      <p>The secret to any good design lies in the way its visual elements are organized and positioned in relation to each other. This is exactly what layout design is all about. We will help you to make your business website looks visually appealing to impress potential clients.</p>
+    </div>
+    <div class="col-three">
+      <h6>Interface Creation</h6>
+      <img src="./media/interface.png" alt="interface"/>
+      <p>User Interface (UI) focuses on anticipating what users might need to do and ensuring that the interface has elements that are easy to access, understand, and use. We will create an easy and smothly interface that makes your clients feel comfortable navigating through the website.</p>
+    </div>
+  </main>
+  <div class="form">
+    <div>
+      <h3>SEND US A MESSAGE</h3>
+    </div>
+    <div>
+      <form id="contact-form" onsubmit="onFormSubmit()">
+        <label for="name">
+          <input type="text" placeholder="Name" name="name" id="name">
+        </label>
+        <br>
+        <label for="email">
+          <input type="email" placeholder="Email" name="email" id="email">
+        </label>
+        <br>
+        <textarea type="text" placeholder="Message" name="message" id="message"></textarea>
+        <br>
+        <input id="submit" type="submit" value="SEND">
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <p>©Rodrigo Martins - Pace University - New York, NY - 2021</p>
+  </footer>
+  <script src="./script.js"></script>
+</body>
+</html>

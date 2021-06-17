@@ -1,0 +1,19 @@
+The goal of this project is to practice on the concepts of threads and sockets.
+1. The client program:
+	- Define a class named MyClient with the method: main inside.
+	- Create to threads t1 and t2 and pass two different port numbers (like 16790 and 16791. Start t1 and t2.
+	- Once the execution of the threads t1 and t2 over, call method getString for t1 and t2 to get the strings coming from the server program.
+	- Connect the two strings separated by a space to make a new string (like: s).
+	- Create an object of the type java class StringTokenizer and pass the new string to its constructor.
+	- Define an ArrayList (with no size). I named it: list.
+	- Using methods hasMoreTokens and nextToken of the class StringTokenizer to extract each integer. Note that the integer extracted is a string, you need to use Integer.parsInt(...) to convert it to a number.
+	- Add these numbers to the ArrayList: list.
+	- Use the class Collectors to sort the list.
+	- Display all the numbers.
+
+2. The server program:
+	- You need to duplicate the code of MyServer of example 3 of lecture 2. One for the first port number (I selected 16790 and 16791) and one for the second port number. However, once you have the school server account you can put the second duplicate for the school server.
+	- Define a method named: makeTheString that returns a string. In this method generate a number for: n and generate n integers. Make a string of these numbers. Every two integers must be separated by a space. 
+	- Return this string.
+	- Call the method makeTheString to get the string of integers and send it to the client.
+

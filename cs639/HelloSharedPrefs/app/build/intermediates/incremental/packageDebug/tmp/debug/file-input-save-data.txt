@@ -1,0 +1,7 @@
+#Internal package file, do not edit.
+#Thu Mar 11 13:25:30 EST 2021
+0.baseType=DIRECTORY
+0.base=D\:\\RODRIGO\\GitHub\\CS6392021\\HelloSharedPrefs\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
+0.path=classes.dex
+0.set=DEX
+count=1

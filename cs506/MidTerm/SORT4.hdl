@@ -1,0 +1,11 @@
+CHIP SORT4 {
+    IN a[16], b[16], c[16], d[16];
+    OUT min[16], max[16];
+
+    PARTS:
+    SORT2 (a=a, b=b, min=minab, max=maxab);
+    SORT2 (a=c, b=d, min=mincd, max=maxcd);
+    SORT2 (a=minab, b=mincd, min=minabcd);
+    SORT2 (a=maxab, b=maxcd, max=maxabcd);
+    SORT2 (a=minabcd, b=maxabcd, min=min, max=max);
+}

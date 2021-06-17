@@ -1,0 +1,15 @@
+/* if sub == 1 then out = a - b
+   else  out = a + b
+
+*/
+
+CHIP SubOrAdder16 {
+     IN a[16], b[16], sub;
+     OUT out[16];
+     
+    PARTS:
+    //put your code here
+    Not16 (in=b, out=notB);
+    Mux16 (a=b, b=notB, sel=sub, out=muxB);
+    Add16C (a=a, b=muxB, c=sub, out=out);
+}

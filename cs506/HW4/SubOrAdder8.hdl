@@ -1,0 +1,10 @@
+CHIP SubOrAdder8 {
+     IN a[8], b[8], sub;
+     OUT out[8];
+     
+    PARTS:
+    //put your code here
+    Not8 (in=b, out=notB);
+    Mux8 (a=b, b=notB, sel=sub, out=muxB);
+    Add8C (a=a, b=muxB, c=sub, out=out);
+}

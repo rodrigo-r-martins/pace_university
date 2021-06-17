@@ -1,0 +1,11 @@
+CHIP Or13Way {
+    IN in[13];
+    OUT out;
+
+    PARTS:
+    // Put your code here:
+    Or8Way (in=in[0..7], out=or0to7);
+    Or4Way (in=in[8..11], out=or8to11);
+    Or (a=or0to7, b=or8to11, out=or0to11);
+    Or (a=or0to11, b=in[12], out=out);
+}

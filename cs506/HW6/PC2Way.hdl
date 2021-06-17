@@ -1,0 +1,15 @@
+CHIP PC2Way {
+    IN Din[16], op[2];
+    OUT Dout[16];
+
+    PARTS:
+    // THIS IS NOT CORRECT! THE CORRECT PC2WAY (PC2) IS FOUND ON HW7 DIRECTORY!
+
+    Not (in=op[0], out=notOp0);
+    Mux16 (a=outReg, b=Din, sel=op[0], out=outLoad);
+    Mux16 (a=outLoad, b=false, sel=notOp0, out=outRes);
+    Mux16 (a=outRes, b=sOrAout, sel=op[1], out=outInc);
+    Register (in=outInc, load=true, out=Dout, out=outReg);
+    Bit (in=op[0], load=op[1], out=mode);
+    SubOrAdder16 (a=outReg, b=true, sub=mode, out=sOrAout);
+}

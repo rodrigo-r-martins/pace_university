@@ -1,0 +1,14 @@
+/**
+ * Adds two 16-bit values.
+ * The most significant carry bit is ignored.
+ */
+
+CHIP Add3Way16 {
+    IN a[16], b[16], c[16];
+    OUT out[16];
+
+    PARTS:
+    // Put you code here:
+    Add16 (a=a, b=b, out=sumab);
+    Add16 (a=sumab, b=c, out=out);
+}

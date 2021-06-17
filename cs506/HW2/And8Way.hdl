@@ -1,0 +1,15 @@
+/**
+ * 8-way And:
+ * out = (in[0] and in[1] and ... and in[7])
+ */
+
+CHIP And8Way {
+    IN in[8];
+    OUT out;
+
+    PARTS:
+    // Put your code here:
+    And4Way (in=in[0..3], out=outa);
+    And4Way (in=in[4..7], out=outb);
+    And (a=outa, b=outb, out=out);
+}

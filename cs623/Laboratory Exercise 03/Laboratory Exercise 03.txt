@@ -1,0 +1,16 @@
+Creating and Using the University Database in Oracle:
+ 
+1. Create the Student, Faculty, Class, and Enroll tables in the database as shown in Figure 5.2 in the textbook. Note: To help you see how the commands work, open both the text file and the SQL*Plus window in Oracle. You will move back and forth between the open windows. You should highlight and copy the CREATE TABLE commands (one at a time) and paste them into SQL*Plus at the SQL> prompt. You should see the message: Table Created after each statement is executed.
+
+2. Now insert the records into your tables. To do this, copy each INSERT command (one at a time) and paste them into SQL*Plus at SQL> prompt. You should see the message:  1 row created after each statement is executed. 
+
+3. Design SQL queries for the following questions:
+	a. Find the names of all History majors.
+	b. Find the class number, schedule, and room for all classes that Smith of the History department teaches.
+	c. Find the names of all students who have fewer than average number of credits.
+	d. Find the names of all the teachers that Ann Chin has, along with all her classes and midterm grades from each.
+	e. For each student, find the number of classes he or she is enrolled in.
+
+4. Execute the five queries in the database and show the results.
+
+

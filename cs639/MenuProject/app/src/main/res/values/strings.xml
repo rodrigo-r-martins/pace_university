@@ -1,0 +1,41 @@
+<resources>
+    <!-- General strings -->
+    <string name="app_name">MenuProject</string>
+    <string name="text_title">Choose one option:</string>
+
+    <!-- Button strings -->
+    <string name="btn_sms_text">SMS</string>
+    <string name="btn_caller_text">PHONE</string>
+    <string name="btn_web_text">WEB</string>
+    <string name="btn_map_text">MAP</string>
+    <string name="btn_share_text">SHARE</string>
+    <string name="btn_new_activity_text">NEW ACTIVITY</string>
+
+    <!-- Action string for WEB button -->
+    <string name="web_url">http://webpage.pace.edu/rr59628w/CS641/assignments/03/index.html</string>
+
+    <!-- Action strings for New Activity button -->
+    <string name="new_activity_name">New Activity</string>
+    <string name="textview_message">Hello, Rodrigo Martins</string>
+
+    <!-- Action string for PHONE button -->
+    <string name="caller_number">+19147929279</string>
+
+    <!-- Action strings for MAP button -->
+    <string name="map_location">Barra da Tijuca, Rio de Janeiro, Brazil</string>
+
+    <!-- Action strings for SHARE button -->
+    <string name="share_text_subject">Share the love</string>
+    <string name="share_message_title">Share the love</string>
+    <string name="share_message">Just sharing the love</string>
+
+    <!-- Action strings for SMS button -->
+    <string name="sms_number">+19147929279</string>
+    <string name="sms_message">Hello Rodrigo</string>
+
+    <!-- Menu Strings -->
+    <string name="menu_help">Help</string>
+    <string name="menu_settings">Settings</string>
+    <string name="help_message">This is the help activity</string>
+    <string name="help_activity_name">Help Activity</string>
+</resources>

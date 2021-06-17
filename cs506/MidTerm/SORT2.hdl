@@ -1,0 +1,9 @@
+CHIP SORT2 {
+    IN a[16], b[16];
+    OUT min[16], max[16];
+
+    PARTS:
+    LessThan16 (a=a, b=b, out=alessb);
+    Mux16 (a=b, b=a, sel=alessb, out=min);
+    Mux16 (a=a, b=b, sel=alessb, out=max);
+}

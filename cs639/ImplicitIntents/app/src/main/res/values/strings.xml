@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">ImplicitIntents</string>
+    <string name="edittext_uri">http://webpage.pace.edu/rr59628w/CS641/assignments/03/index.html</string>
+    <string name="button_uri">Open Website</string>
+
+    <string name="edittext_loc">Maracana Stadium</string>
+    <string name="button_loc">Open Location</string>
+
+    <string name="edittext_share">I cannot believe I could make it!</string>
+    <string name="button_share">Share This Text</string>
+    <string name="share_text_with">"Share this text with: "</string>
+</resources>

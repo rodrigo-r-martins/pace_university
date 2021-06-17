@@ -1,0 +1,212 @@
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+
+/* 
+===============
+LARGER DEVICES
+===============
+*/
+
+body {
+  font-family: 'Righteous', cursive;
+  background: linear-gradient(to right, rgb(150, 210, 230), rgb(70, 230, 250), rgb(0, 120, 200));
+}
+
+h1 {
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 8px;
+  color:rgb(0, 70, 120);
+  text-shadow: 5px 5px 8px whitesmoke;
+}
+
+h4, h5 {
+  margin: 5px;
+  text-align: center;
+  letter-spacing: 5px;
+  color:rgb(0, 70, 120);
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  gap: 12px;
+  grid-auto-rows: minmax(400px, auto);
+  margin-top: 30px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.col-one, .col-two, .col-three {
+  background-color: rgb(255, 255, 255);
+  border-radius: 5px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 4px 15px 0 rgba(0, 0, 0, 0.2);
+}
+
+h6 {
+  text-align: center;
+  font-size: 14px;
+  font-weight: lighter;
+  color: rgb(0, 70, 120);
+  background-color: rgb(0, 70, 120, .2);
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.col-one p, .col-two p, .col-three p {
+  text-align: justify;
+  line-height: 30px;
+  text-indent: 10px;
+  font-size: 14px;
+  padding: 10px 20px 10px 20px;
+  color: rgb(0, 70, 120, .5);
+}
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 85%;
+  height: auto;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: width 1.5s ease-in-out, transform 0.8s ease-in-out;
+}
+
+img:hover {
+  width: 100%;
+  transform: rotateY(360deg);
+  transition: width 1.5s;
+}
+
+.form {
+  display: block;
+  width: 408px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 5px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 4px 15px 0 rgba(0, 0, 0, 0.2);
+  border-top: 2px solid rgb(0, 70, 120, .4);
+  margin: 30px auto 30px auto;
+  padding: 0px 20px 20px 20px;
+}
+
+.form h3 {
+  margin-top: 20px;
+  text-align: center;
+  color: rgb(0, 70, 120);
+}
+
+.form input, .form textarea {
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 12px;
+  letter-spacing: 1px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 300px;
+  padding: 10px;
+  border: 1px solid lightgray;;
+  border-radius: 2px;
+  outline: none;
+  color:rgba(0, 0, 0, 0.4);
+  resize: none;
+}
+
+textarea {
+  height: 100px;
+}
+
+.form #submit {
+  width: 100px;
+  color:rgb(236, 236, 236);
+  border-radius: 10px;
+  border: none;
+  background-color: rgb(60, 180, 200);
+  cursor: pointer;
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+
+.form #submit:hover {
+  background-color: rgb(0, 0, 0);
+  color: white;
+}
+
+.form #submit:active {
+  top: 1px;
+  position: relative;
+}
+
+footer {
+  font-size: 12px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  text-align: center;
+  letter-spacing: 3px;
+  color: rgb(0, 70, 120);
+}
+
+/* 
+===============
+MOBILE DEVICES
+===============
+*/
+
+@media (max-width: 550px) {
+  h1 {
+    letter-spacing: 5px;
+    font-size: 22px;
+  }
+
+  h4, h5 {
+    letter-spacing: 3px;
+    font-size: 12px;
+  }
+
+  h6 {
+    font-size: 18px;
+  }
+
+  .container { 
+    grid-template-columns: 100%; 
+  }
+
+  .form {
+    width: auto;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .form input, .form textarea {
+    width: 180px;
+    font-size: 10px;
+  }
+
+  textarea {
+    height: 100px;
+  }
+
+  footer {
+    font-size: 9px;
+  }
+}
+
+@media (min-width: 1000px) {
+  h1 {
+    letter-spacing: 8px;
+    font-size: 24px;
+  }
+
+  h4, h5 {
+    letter-spacing: 5px;
+  }
+
+  h6 {
+    font-size: 18px;
+  }
+
+  .col-one p, .col-two p, .col-three p {
+    font-size: 16px;
+  }
+
+  footer {
+    font-size: 14px;
+  }
+}

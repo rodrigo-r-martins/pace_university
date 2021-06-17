@@ -1,0 +1,46 @@
+
+/**
+ * Eq16 gate:
+ * out = 1 if (a[0] == b[0] and a[1] == b[1] and ... and a[15] == b[15])
+ *       0 otherwise
+ */
+
+CHIP Eq16 {
+    IN a[16], b[16];
+    OUT out;
+
+    PARTS:
+    // Put your code here:
+    Eq (a=a[0], b=b[0], out=ab0);
+    Eq (a=a[1], b=b[1], out=ab1);
+    Eq (a=a[2], b=b[2], out=ab2);
+    Eq (a=a[3], b=b[3], out=ab3);
+    Eq (a=a[4], b=b[4], out=ab4);
+    Eq (a=a[5], b=b[5], out=ab5);
+    Eq (a=a[6], b=b[6], out=ab6);
+    Eq (a=a[7], b=b[7], out=ab7);
+    Eq (a=a[8], b=b[8], out=ab8);
+    Eq (a=a[9], b=b[9], out=ab9);
+    Eq (a=a[10], b=b[10], out=ab10);
+    Eq (a=a[11], b=b[11], out=ab11);
+    Eq (a=a[12], b=b[12], out=ab12);
+    Eq (a=a[13], b=b[13], out=ab13);
+    Eq (a=a[14], b=b[14], out=ab14);
+    Eq (a=a[15], b=b[15], out=ab15);
+    And (a=ab0, b=ab1, out=c1);
+    And (a=c1, b=ab2, out=c2);
+    And (a=c2, b=ab3, out=c3);
+    And (a=c3, b=ab4, out=c4);
+    And (a=c4, b=ab5, out=c5);
+    And (a=c5, b=ab6, out=c6);
+    And (a=c6, b=ab7, out=c7);
+    And (a=c7, b=ab8, out=c8);
+    And (a=c8, b=ab9, out=c9);
+    And (a=c9, b=ab10, out=c10);
+    And (a=c10, b=ab11, out=c11);
+    And (a=c11, b=ab12, out=c12);
+    And (a=c12, b=ab13, out=c13);
+    And (a=c13, b=ab14, out=c14);
+    And (a=c14, b=ab15, out=out);
+}
+

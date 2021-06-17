@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">SQLiteDatabase</string>
+    <string name="input_hint">Name</string>
+    <string name="btn_insert">Insert</string>
+    <string name="toast_error">You must enter a name</string>
+    <string name="toast_insert">Name inserted in the Database</string>
+    <string name="btn_delete">Delete</string>
+    <string name="toast_delete">Name deleted from the Database</string>
+</resources>

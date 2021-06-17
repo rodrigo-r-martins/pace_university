@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">FirebaseEmployee</string>
+    <string name="btnAdd">Add</string>
+    <string name="etLastNameHint">Last Name</string>
+    <string name="etFirstNameHint">First Name</string>
+    <string name="tvResultTitle">LIST OF EMPLOYEES:</string>
+</resources>

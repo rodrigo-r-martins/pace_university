@@ -1,0 +1,40 @@
+/*  loadS and S sets init value of register that stores S(i)
+    loadX and X sets init value of register that stores X(i)
+
+    if(loadS == true)
+        S(i+1) = S 
+    else 
+        S(i+1) = S(i) + X(i)
+
+    if(loadX == true)
+        X(i+1) = X
+    else 
+	X(i+1) = X(i) + 1
+
+    Test file has set both inits to be zero
+*/
+
+CHIP Accumulator {
+    IN X[8], S[8], loadS, loadX;
+    OUT SOUT[8], XOUT[8];
+
+    PARTS:
+
+    // Loading X and incrementing it
+    PC8 (in=X, inc=true, load=loadX, out=incX);
+  
+    // Checking between X or X++
+    Mux8 (a=incX, b=X, sel=loadX, out=XOUT);
+
+    // Adding registered S to X incremented
+    Add8CC (a=outRegS, b=incX, cin=false, out=addXS, cout=carry);   
+    
+    // Checking overflow
+    Mux8 (a=addXS, b=outRegS, sel=carry, out=muxXS);
+    
+    // Registering value of S after adding it to X incremented
+    Register8 (in=muxXS, load=true, out=outRegS);
+
+    // Checking between S or S+X
+    Mux8 (a=outRegS, b=S, sel=loadS, out=SOUT);        
+}

@@ -1,0 +1,11 @@
+CHIP HAccumulator {
+    IN X[8];
+    OUT S[8];
+
+    PARTS:
+    PC8 (in=X, inc=true, out=incX);
+    Add8CC (a=incX, b=outReg, cin=false, out=addX, cout=carry);
+    Bit (in=true, load=carry, out=overflow);   
+    Mux8 (a=addX, b=outReg, sel=carry, out=muxAb);
+    Register8 (in=muxAb, load=true, out=S, out=outReg);
+}

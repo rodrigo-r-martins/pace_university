@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">AsyncTaskProject</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+
+    <string name="tv_url_loading">Loading…</string>
+    <string name="btn_load_image">Load Image</string>
+    <string name="pre_url">URL:</string>
+    <string name="img_url">https://cdn.pixabay.com/photo/2017/01/08/19/30/rio-de-janeiro-1963744_1280.jpg</string>
+    <string name="previous">previous</string>
+    <string name="btn_reset_image">Reset</string>
+</resources>

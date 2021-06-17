@@ -1,0 +1,19 @@
+/**
+ * 32-way demultiplexor:
+ *   {in, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0} if sel == 00000
+ *   {0, in, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0} if sel == 00001
+ *   etc.
+ *   {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, in} if sel == 11111
+ */
+
+CHIP DMux32Way {
+    IN in, sel[5];
+    OUT o0, o1, o2, o3, o4, o5, o6, o7, o8, o9, o10, o11, o12, o13, o14, o15, 
+        o16,o17,o18,o19,o20,o21,o22,o23,o24,o25,o26, o27, o28, o29, o30, o31;
+
+    PARTS:
+    // Put your code here:
+    DMux (in=in, sel=sel[4], a=o0too15, b=o16too31);
+    DMux16Way (in=o0too15, sel=sel[0..3], a=o0, b=o1, c=o2, d=o3, e=o4, f=o5, g=o6, h=o7, i=o8, j=o9, k=o10, l=o11, m=o12, n=o13, o=o14, p=o15);
+    DMux16Way (in=o16too31, sel=sel[0..3], a=o16, b=o17, c=o18, d=o19, e=o20, f=o21, g=o22, h=o23, i=o24, j=o25, k=o26, l=o27, m=o28, n=o29, o=o30, p=o31);
+}

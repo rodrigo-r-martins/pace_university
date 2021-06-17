@@ -1,0 +1,11 @@
+/*If a < b, out = true otherwise false*/
+/* You must implment SubOrAdder16 first in order to implement LessThan16*/
+
+CHIP LessThan16 {
+    IN a[16], b[16];
+    OUT out;
+    
+    PARTS: 
+    //puts your code here
+    SubOrAdder16 (a=a, b=b, sub=true, out[15]=out);
+}

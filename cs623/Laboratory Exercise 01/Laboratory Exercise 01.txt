@@ -1,0 +1,15 @@
+Laboratory Exercise 3.1 - Drawing E-R Diagrams
+
+Using a drawing tool, draw an E-R diagram for the Employee-Project-Department example described below.
+Note: Drawing tool software such as Microsoft Visio or similar products should be used for this laboratory exercise.  If these are not available, the drawing tool in Microsoft Word or the Windows Paint program may be used. 
+
+1.  Consider the entity set Employee with attributes empId, socSecNo, empName, jobtitle, and salary.
+	a. Show how the entity set and its attributes would be represented on an E-R diagram.
+	b. Identify all candidate keys for the entity set.
+	c. Identify a primary key for the entity set and underline it on the E-R diagram.
+
+2.  Assume in the same enterprise as in question 1, that there is an entity set called Project with attributes projName, startDate, endDate, and budget. 
+	a. Show how this entity set and its relationship to Employee would be represented on the E-R diagram. Assume you want to represent the number of hours an employee is assigned to work on a project, and show that in the diagram.
+	b. Stating any necessary assumptions, make a decision about the cardinality and participation constraints of the relationship, and add appropriate symbols to the E-R diagram.
+
+3. Assume there is another entity called Department to be added. Each employee works for only one department. Projects are not directly sponsored by a department. Making up attributes as needed, add this entity and appropriate relationship(s) and symbols to the E-R diagram.

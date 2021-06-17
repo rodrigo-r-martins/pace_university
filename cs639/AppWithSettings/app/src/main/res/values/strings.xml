@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">AppWithSettings</string>
+    <string name="action_settings">Settings</string>
+    <string name="switch_title">Settings option</string>
+    <string name="switch_summary">Turn this option on or off</string>
+    <string name="hello_rodrigo">Hello Rodrigo!</string>
+</resources>

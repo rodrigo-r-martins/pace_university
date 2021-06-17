@@ -1,0 +1,9 @@
+com/example/android/appwithsettings/MainActivity.java
+ com.example.android.appwithsettings.MainActivity
+ com.example.android.appwithsettings.MainActivity$1
+com/example/android/appwithsettings/BuildConfig.java
+ com.example.android.appwithsettings.BuildConfig
+com/example/android/appwithsettings/SettingsFragment.java
+ com.example.android.appwithsettings.SettingsFragment
+com/example/android/appwithsettings/SettingsActivity.java
+ com.example.android.appwithsettings.SettingsActivity

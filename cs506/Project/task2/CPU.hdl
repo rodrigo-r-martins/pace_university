@@ -1,0 +1,75 @@
+/*
+********
+
+In this task, you will expand ALU with two more functionalities: left-shift and right-shift. 
+ 
+In this project, shift is defined to operate on D register. In other words, left-shift means D*2, while right-shift means D/2.  
+ 
+In lecture we noticed that there are 6 control bits as part of inputs of ALU, which could potentially support 2^6 (64) functionalities, more than what has been defined as below: 
+
+We will use unused code to represent new features: left-shift and right-shift:   
+zx nx zy ny f no out 
+1  1  1  1  0 1  x*2 
+1  1  1  1  1 0  x/2 
+ 
+In order to avoid conflicts with the built-in three-phase design of ALU while treating ALU as a building block, we can follow this simple branching logic: 
+
+if(zx==1 && nx==1 &&zy==1 && ny==1 && f==0 && no==1) {      
+	output = x*2 
+} else if (zx==1 && nx==1 &&zy==1 && ny==1 && f==1 && no==0) {      
+	output = x*2 
+} else {      
+	output = ALU(zx, nx, zy, ny, f, no); 
+} 
+
+- Please start with copying your functioning CPU.hdl as well as supporting chips from task1 to task2. 
+ 
+- After adding left shift and right shift to your CPU.hdl in task2 folder, please run your CPU against CPU.tst to make sure your code works. 
+
+********
+*/
+
+CHIP CPU {
+
+    IN  inM[16],         // M value input  (M = contents of RAM[A])
+        instruction[16], // Instruction for execution
+        reset;           // Signals whether to re-start the current
+                         // program (reset==1) or continue executing
+                         // the current program (reset==0).
+
+    OUT outM[16],        // M value output
+        writeM,          // Write to M? 
+        addressM[15],    // Address in data memory (of M)
+        pc[15];          // address of next instruction
+
+    PARTS:
+
+    // Evaluating selector to mux between ALU output and instruction that is going to enter in ARegister
+    Not (in=instruction[15], out=notInst15);
+    Mux16 (a=outALU, b=instruction, sel=notInst15, out=outMuxA);
+
+    // Evaluating load bit of ARegister, which loads output of previous mux and outputs address of RAM
+    Or (a=notInst15, b=instruction[5], out=loadRegA);    
+    ARegister (in=outMuxA, load=loadRegA, out=outRegA, out[0..14]=addressM);
+
+    // Evaluating selector to mux between ARegister output and inM (output of RAM)
+    And (a=instruction[15], b=instruction[12], out=selMuxA);
+    Mux16 (a=outRegA, b=inM, sel=selMuxA, out=inY);	// Output becomes Y input of ALU
+
+    // Evaluating load bit to DRegister, which loads ALU output
+    And (a=instruction[4], b=instruction[15], out=loadRegD);
+    DRegister (in=outALU, load=loadRegD, out=inX);	// Output becomes X input of ALU
+
+    // Loading ALU extended with left and right shift operations
+    // ALU output becomes RAM input (outM)
+    ALUExt (x=inX, y=inY, zx=instruction[11], nx=instruction[10], zy=instruction[9], ny=instruction[8], f=instruction[7], no=instruction[6], out=outALU, out=outM, zr=zrIn, ng=ngIn);
+    
+    // Gate that controls jump bits (instruction[0..2]) with zr and ng outputs of ALU, as shown in CPU architecture
+    Control (in=instruction[15], zr=zrIn, ng=ngIn, jbits=instruction[0..2], out=loadPC);
+
+    // Loading PC with load bit (jump bits) checked in Control gate
+    PC (in=outRegA, load=loadPC, inc=true, reset=reset, out[0..14]=pc);
+
+    // Evaluating load bit of RAM
+    And (a=instruction[15], b=instruction[3], out=writeM);
+}

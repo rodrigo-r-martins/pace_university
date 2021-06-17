@@ -1,0 +1,16 @@
+/**
+ * Simulate a clock generator. At time 0, generates a 0,
+ * at 1, generates a 1, at 2, generates a 0, etc.
+ *
+ * You'll use a DFF (of course) and you can assume the first
+ * output of the DFF (at time 0+) is a 1. When testing in the
+ * simulator, you can set this value in the "Internal pins" area.
+ */
+
+CHIP ClockGen {
+     OUT out;
+
+     PARTS:
+     Not (in=dffOut, out=notDff);
+     DFF (in=notDff, out=out, out=dffOut);
+}

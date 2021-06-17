@@ -1,0 +1,16 @@
+
+/**
+ * Computes the subtraction of two bits.
+ */
+
+CHIP HalfSubtractor {
+    IN a, b;    // 1-bit inputs
+    OUT diff,   
+        bout;  
+
+    PARTS:
+    // Put you code here:
+    Xor (a=a, b=b, out=diff);
+    Not (in=a, out=notA);
+    And (a=notA, b=b, out=bout);
+}
